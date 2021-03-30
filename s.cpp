@@ -18,7 +18,15 @@ private:
     map<string, string> commands{{"gcm", "git commit -am"}, {"gcma", "git commit --amend"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}};
 
 public:
-    string getCommand(string key) { return commands[key]; }
+    string getCommand(string key)
+    {
+        string cmd = commands[key];
+        if (cmd != "")
+            return cmd;
+        else
+            Error("La commande est introuvable");
+        return "";
+    }
     void run(string cmd);
     void run(string cmd, string arg);
 };
@@ -30,11 +38,11 @@ private:
 
     static string ltrim(string s);
     static string rtrim(string s);
+
 public:
     static string trim(string s);
 };
 const string String::WHITESPACE = " \r\t\f\v";
-
 
 int main(int argc, char *argv[])
 {
@@ -65,7 +73,7 @@ void Command::run(string cmd)
 
 void Command::run(string cmd, string arg)
 {
-    if(String::trim(arg).find(" ") != string::npos)
+    if (String::trim(arg).find(" ") != string::npos)
         arg = "\"" + arg + "\"";
 
     string command = getCommand(cmd) + " " + arg;
@@ -75,21 +83,19 @@ void Command::run(string cmd, string arg)
     system(runnableCommand);
 }
 
-
 string String::ltrim(string s)
 {
     size_t start = s.find_first_not_of(WHITESPACE);
-    return (start == std::string::npos) ? "" : s.substr(start);
+    return (start == string::npos) ? "" : s.substr(start);
 }
- 
+
 string String::rtrim(string s)
 {
     size_t end = s.find_last_not_of(WHITESPACE);
-    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+    return (end == string::npos) ? "" : s.substr(0, end + 1);
 }
- 
+
 string String::trim(string s)
 {
     return rtrim(ltrim(s));
 }
- 
