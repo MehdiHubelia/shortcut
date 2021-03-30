@@ -8,7 +8,11 @@ using namespace std;
 class Error
 {
 public:
-    Error(string error);
+    Error(string error)
+    {
+        std::cout << error << std::endl;
+        exit(1);
+    }
 };
 
 class Command
@@ -16,11 +20,13 @@ class Command
 private:
     map<string, string> commands{
         {"gaa", "git add -A"},
-        {"gcm", "git commit -am"}, {"gcma", "git commit --amend"},
-        {"gch", "git checkout"}, {"gchb", "git checkout -b"},
-        {"glo", "git log --oneline"}, {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
-        {"gps", " git push --set-upstream origin"}
-    };
+        {"gcm", "git commit -am"},
+        {"gcma", "git commit --amend"},
+        {"gch", "git checkout"},
+        {"gchb", "git checkout -b"},
+        {"glo", "git log --oneline"},
+        {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
+        {"gps", " git push --set-upstream origin"}};
 
 public:
     string getCommand(string key)
@@ -32,7 +38,7 @@ public:
             Error("La commande est introuvable");
         return "";
     }
-    void run(string cmd);
+    void run(string cmd) { run(cmd, ""); }
     void run(string cmd, string arg);
 };
 
@@ -41,10 +47,18 @@ class String
 private:
     static const string WHITESPACE;
 
-    static string ltrim(string s);
-    static string rtrim(string s);
+    static string ltrim(string s)
+    {
+        size_t start = s.find_first_not_of(WHITESPACE);
+        return (start == string::npos) ? "" : s.substr(start);
+    }
+    static string rtrim(string s)
+    {
+        size_t end = s.find_last_not_of(WHITESPACE);
+        return (end == string::npos) ? "" : s.substr(0, end + 1);
+    }
 
 public:
-    static string trim(string s);
+    static string trim(string s) { return rtrim(ltrim(s)); }
 };
 const string String::WHITESPACE = " \r\t\f\v";
