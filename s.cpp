@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -22,6 +23,19 @@ public:
     void run(string cmd, string arg);
 };
 
+class String
+{
+private:
+    static const string WHITESPACE;
+
+    static string String::ltrim(string s);
+    static string String::rtrim(string s);
+public:
+    static string trim(string s);
+};
+const string String::WHITESPACE = " \r\t\f\v";
+
+
 int main(int argc, char *argv[])
 {
     if (argc <= 1)
@@ -35,7 +49,6 @@ int main(int argc, char *argv[])
     {
         Command cmd;
         cmd.run(argv[1], argv[argc - 1]);
-
     }
 }
 
@@ -55,8 +68,28 @@ void Command::run(string cmd, string arg)
     string command = getCommand(cmd) + " " + arg;
 
     std::cout << command << std::endl;
+    std::cout << arg << std::endl;
 
     char *runnableCommand;
     runnableCommand = &command[0];
     system(runnableCommand);
 }
+
+
+string String::ltrim(string s)
+{
+    size_t start = s.find_first_not_of(WHITESPACE);
+    return (start == std::string::npos) ? "" : s.substr(start);
+}
+ 
+string String::rtrim(string s)
+{
+    size_t end = s.find_last_not_of(WHITESPACE);
+    return (end == std::string::npos) ? "" : s.substr(0, end + 1);
+}
+ 
+string String::trim(string s)
+{
+    return rtrim(ltrim(s));
+}
+ 
