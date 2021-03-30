@@ -6,3 +6,4 @@
 | gchb | git checkout -b |
 | glo | git log --oneline |
 | glop | git log --pretty=format:\"%h  %cr  %cn : %s\" |
+| gps | git push --set-upstream origin |

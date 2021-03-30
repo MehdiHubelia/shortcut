@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <map>
-#include <algorithm>
 
 using namespace std;
 
@@ -19,7 +18,7 @@ private:
         {"gcm", "git commit -am"}, {"gcma", "git commit --amend"},
         {"gch", "git checkout"}, {"gchb", "git checkout -b"},
         {"glo", "git log --oneline"}, {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
-        {"gp", "git push"}, {"gps", " git push --set-upstream origin"}
+        {"gps", " git push --set-upstream origin"}
     };
 
 public:
