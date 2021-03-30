@@ -28,8 +28,8 @@ class String
 private:
     static const string WHITESPACE;
 
-    static string String::ltrim(string s);
-    static string String::rtrim(string s);
+    static string ltrim(string s);
+    static string rtrim(string s);
 public:
     static string trim(string s);
 };
@@ -65,10 +65,13 @@ void Command::run(string cmd)
 
 void Command::run(string cmd, string arg)
 {
+    if(String::trim(arg).find(" ") != string::npos)
+        arg = "\"" + arg + "\"";
+    std::cout << arg << std::endl;
+
     string command = getCommand(cmd) + " " + arg;
 
     std::cout << command << std::endl;
-    std::cout << arg << std::endl;
 
     char *runnableCommand;
     runnableCommand = &command[0];
