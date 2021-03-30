@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
 void Command::run(string cmd, string arg)
 {
+    std::cout << "&arg: " << &arg << std::endl;
     if (String::trim(arg).find(" ") != string::npos)
         arg = "\"" + arg + "\"";
 
