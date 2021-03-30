@@ -1,0 +1,19 @@
+@startuml class
+
+class Main {
+    + Main(int argc, char* argv[])
+}
+
+class Error {
+    + Error(string message)
+}
+
+class Command {
+    + run(string cmd)
+    + run(string cmd, string args)
+}
+
+
+Main -- Error
+Main -- Command
+@enduml
