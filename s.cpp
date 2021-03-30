@@ -14,7 +14,7 @@ public:
 class Command
 {
 private:
-    map<string, string> commands{{"gcm", "git commit -am"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}};
+    map<string, string> commands{{"gcm", "git commit -am"}, {"gcma", "git commit --amend"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}};
 
 public:
     string getCommand(string key) { return commands[key]; }
@@ -54,7 +54,6 @@ void Command::run(string cmd, string arg)
     string command = getCommand(cmd) + " " + arg;
 
     std::cout << command << std::endl;
-    system("pwd");
 
     char *runnableCommand;
     runnableCommand = &command[0];
