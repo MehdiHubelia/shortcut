@@ -15,7 +15,8 @@ public:
 class Command
 {
 private:
-    map<string, string> commands{{"gcm", "git commit -am"}, {"gcma", "git commit --amend"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}};
+    map<string, string> commands{
+        {"gcm", "git commit -am"}, {"gcma", "git commit --amend"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}, {"glo", "git log --oneline"}, {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""}};
 
 public:
     string getCommand(string key)
