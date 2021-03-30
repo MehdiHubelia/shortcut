@@ -35,7 +35,7 @@ public:
         if (cmd != "")
             return cmd;
         else
-            Error("La commande est introuvable");
+            Error("La commande est introuvable.\nLire le README: https://github.com/Kyowdem/shortcut/");
         return "";
     }
     void run(string cmd) { run(cmd, ""); }
