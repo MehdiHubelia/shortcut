@@ -16,7 +16,11 @@ class Command
 {
 private:
     map<string, string> commands{
-        {"gcm", "git commit -am"}, {"gcma", "git commit --amend"}, {"gch", "git checkout"}, {"gchb", "git checkout -b"}, {"glo", "git log --oneline"}, {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""}};
+        {"gcm", "git commit -am"}, {"gcma", "git commit --amend"},
+        {"gch", "git checkout"}, {"gchb", "git checkout -b"},
+        {"glo", "git log --oneline"}, {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
+        {"gp", "git push"}, {"gps", " git push --set-upstream origin"}
+    };
 
 public:
     string getCommand(string key)
