@@ -1,5 +1,6 @@
 | Shortcut | Command |
 | --- | --- |
+| gaa | git add -A |
 | gcm | git commit -am |
 | gcma | git commit --amend |
 | gch | git checkout |
