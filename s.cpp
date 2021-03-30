@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
     {
         Command cmd;
         cmd.run(argv[1], argv[argc - 1]);
+
     }
 }
 
