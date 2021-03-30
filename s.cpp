@@ -53,6 +53,9 @@ void Command::run(string cmd, string arg)
 {
     string command = getCommand(cmd) + " " + arg;
 
+    std::cout << command << std::endl;
+    system("pwd");
+
     char *runnableCommand;
     runnableCommand = &command[0];
     system(runnableCommand);
