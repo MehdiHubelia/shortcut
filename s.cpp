@@ -67,11 +67,8 @@ void Command::run(string cmd, string arg)
 {
     if(String::trim(arg).find(" ") != string::npos)
         arg = "\"" + arg + "\"";
-    std::cout << arg << std::endl;
 
     string command = getCommand(cmd) + " " + arg;
-
-    std::cout << command << std::endl;
 
     char *runnableCommand;
     runnableCommand = &command[0];
