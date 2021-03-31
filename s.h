@@ -49,13 +49,11 @@ private:
 
     static string ltrim(string& s)
     {
-        std::cout << "ltrim: " << &s << std::endl;
         size_t start = s.find_first_not_of(WHITESPACE);
         return (start == string::npos) ? "" : s.substr(start);
     }
     static string rtrim(string s)
     {
-        std::cout << "rtrim: " << &s << std::endl;
         size_t end = s.find_last_not_of(WHITESPACE);
         return (end == string::npos) ? "" : s.substr(0, end + 1);
     }
