@@ -26,7 +26,8 @@ private:
         {"gchb", "git checkout -b"},
         {"glo", "git log --oneline"},
         {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
-        {"gps", "git push -u origin"}};
+        {"gps", "git push -u origin"},
+        {"gcro", "git config --get remote.origin.url"}};
 
 public:
     string getCommand(string key)

@@ -8,3 +8,4 @@
 | glo | git log --oneline |
 | glop | git log --pretty=format:\"%h  %cr  %cn : %s\" |
 | gps | git push -u origin |
+| gcro | git config --get remote.origin.url |
