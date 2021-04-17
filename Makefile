@@ -2,7 +2,7 @@
 
 OPTIONS = -O3 -Wall
 
-s: s.cpp
+s: s.h s.cpp
 	g++ s.cpp -o s $(OPTIONS)
 
 clean:
