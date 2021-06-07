@@ -28,7 +28,9 @@ private:
         {"glop", "git log --pretty=format:\"%h  %cr  %cn : %s\""},
         {"gps", "git push -u origin"},
         {"gba", "git branch -a"},
+        {"gbm", "git branch -m"},
         {"gpd", "git push origin --delete"},
+        {"gfp", "git fetch -p"},
         {"gcro", "git config --get remote.origin.url"}};
 
 public:
