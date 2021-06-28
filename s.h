@@ -31,6 +31,7 @@ private:
         {"gbm", "git branch -m"},
         {"gpd", "git push origin --delete"},
         {"gfp", "git fetch -p"},
+        {"grv", "git remote -v"},
         {"gcro", "git config --get remote.origin.url"}};
 
 public:
